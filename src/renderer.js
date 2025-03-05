@@ -60,15 +60,3 @@ document.addEventListener('DOMContentLoaded', () => {
 }); 
 
 
-
-# Добавление всех файлов в индекс
-git add .
-
-# Создание первого коммита
-git commit -m "Initial commit: Basic editor structure"
-
-# Если нужно добавить удаленный репозиторий (замените URL на ваш)
-git remote add origin https://github.com/yourusername/fe-editor.git
-
-# Отправка изменений в удаленный репозиторий
-git push -u origin main
