@@ -1,0 +1,178 @@
+@font-face {
+    font-family: 'Zed Mono';
+    src: url('./assets/fonts/zed-mono-extended.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Zed Mono', sans-serif;
+    background: #ffffff;
+    color: #2C3E50;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.titlebar {
+    height: 38px;
+    background: #F8FAFC;
+    -webkit-app-region: drag;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.titlebar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+    -webkit-app-region: no-drag;
+}
+
+.control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.close {
+    background: #FF4757;
+}
+
+.minimize {
+    background: #FDCB6E;
+}
+
+.maximize {
+    background: #2ECC71;
+}
+
+.project-name {
+    font-family: 'Zed Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2C3E50;
+    margin-left: 2px;
+}
+
+.main-layout {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 280px;
+    min-width: 200px;
+    max-width: 600px;
+    background: #F8FAFC;
+    border-right: 1px solid #E2E8F0;
+    display: block;
+}
+
+.sidebar.hidden {
+    display: none;
+}
+
+.main-container {
+    flex: 1;
+    background: #ffffff;
+}
+
+.sidebar-placeholder,
+.main-placeholder {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94A3B8;
+    font-size: 18px;
+    font-family: 'Zed Mono', monospace;
+    font-weight: 500;
+}
+
+.file-tree-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+}
+
+.file-tree-toggle:hover {
+    background-color: rgb(0 0 0 / 10%);
+}
+
+.file-tree-toggle img {
+    width: 20px;
+    height: 20px;
+}
+
+.file-tree-toggle.active {
+    background-color: rgb(0 0 0 / 22%);
+}
+
+.downbar {
+    height: 28px;
+    background: #F8FAFC;
+    border-top: 1px solid #E2E8F0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.downbar-left, .downbar-right {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.downbar-left {
+    padding-left: 8px;
+}
+
+.downbar-right {
+    padding-right: 8px;
+}
+
+.resizer {
+    width: 4px;
+    cursor: col-resize;
+    background: transparent;
+    position: relative;
+}
+
+.resizer:hover,
+.resizer.resizing {
+    background: #E2E8F0;
+}
+
+.resizer::before {
+    content: "";
+    position: absolute;
+    left: -2px;
+    right: -2px;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+} 
