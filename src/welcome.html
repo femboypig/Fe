@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --bg: #000;
+            --card-bg: #111111;
+            --text: #fff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --accent: #FF5C00;
+            --radius: 14px;
+            --grid-size: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: calc(var(--grid-size) * 2);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: calc(var(--grid-size) * 3);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: var(--grid-size);
+            animation: glow 4s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 25px rgba(255, 92, 0, 0.2)); }
+            50% { filter: drop-shadow(0 0 40px rgba(255, 92, 0, 0.4)); }
+        }
+
+        h1 {
+            font-size: 72px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(to right, #FF5C00, #FF8A00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--grid-size);
+            margin-top: calc(var(--grid-size) * 2);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: calc(var(--grid-size) * 1.5);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                800px circle at var(--mouse-x) var(--mouse-y),
+                rgba(255, 92, 0, 0.1),
+                transparent 40%
+            );
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            border-color: rgba(255, 92, 0, 0.5);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .icon {
+            font-size: 24px;
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            .container {
+                padding: var(--grid-size);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <img src="assets/Z-logo.svg" alt="Z" class="logo">
+            <h1>Z Editor</h1>
+            <p class="subtitle">Unleash your Rust development potential with blazing fast performance and modern tooling</p>
+        </div>
+
+        <div class="grid">
+            <div class="card" onclick="window.openProject()">
+                <h3>
+                    <span class="icon">⚡️</span>
+                    Open Project
+                </h3>
+                <p>Jump back into your existing Rust projects and continue where you left off</p>
+            </div>
+
+            <div class="card" onclick="window.createNewProject()">
+                <h3>
+                    <span class="icon">🚀</span>
+                    New Project
+                </h3>
+                <p>Start fresh with a new Rust project using our optimized project templates</p>
+            </div>
+
+            <div class="card" onclick="window.openRecentProject()">
+                <h3>
+                    <span class="icon">🔄</span>
+                    Recent Work
+                </h3>
+                <p>Access your recent projects with one click and maintain your workflow</p>
+            </div>
+
+            <div class="card" onclick="window.openDocs()">
+                <h3>
+                    <span class="icon">📘</span>
+                    Learn Z
+                </h3>
+                <p>Master Z Editor with our comprehensive guides and documentation</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+                card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+            });
+        });
+    </script>
+</body>
+</html>

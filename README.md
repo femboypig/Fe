@@ -1,40 +1,47 @@
-# Fe - A Modern Code Editor for Rust
+<h1 align="center">Fe</h1>
 
-<div align="center">
-  <img src="assets/fe_logo.png" alt="Fe Logo" width="120" />
-  <h3>Fast, Elegant, Focused.</h3>
-</div>
+<p align="center">Welcome to Fe, a lightweight code editor, focusing on speed and clean design.</p>
 
-## Overview
-
-Fe is a lightweight, native code editor built specifically for Rust development. Taking inspiration from modern editors like Zed, Fe combines speed and simplicity with powerful Rust-specific features.
-
-## ✨ Key Features
-
-- **Native Rust Integration**
-  - First-class support for Rust syntax highlighting
-  - Real-time error checking and diagnostics
-  - Integrated cargo commands and tooling
-  - Smart code completion powered by rust-analyzer
-
-- **Blazing Fast Performance**
-  - Built with performance in mind using Electron
-  - Instant startup time
-  - Smooth scrolling and editing experience
-  - Efficient memory usage
-
-- **Modern UI/UX**
-  - Clean, distraction-free interface
-  - Customizable themes and layouts
-  - Intuitive file tree navigation
-  - Split view editing
-
-- **Developer Focused**
-  - Git integration out of the box
-  - Integrated terminal
-  - Project-wide search
-  - Multiple cursor support
-
-## 🚀 Getting Started
+---
 
 ### Installation
+
+Currently available for:
+- Windows (Dev state)
+- Linux (Dev state)
+
+You can [download Fe directly](https://github.com/femboypig/fe/releases) or install via package managers:
+
+### Developing Fe
+
+Prerequisites:
+- Node.js 18+
+- npm or yarn
+- Git
+
+```bash
+# Clone the repository
+git clone https://github.com/femboypig/fe.git
+
+# Install dependencies
+cd fe
+npm install
+
+# Start development
+npm run dev
+```
+
+### Contributing
+
+We welcome contributions! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
+
+### License
+
+MIT License - see [LICENSE](./LICENSE) for details.
+
+---
+
+<div align="center">
+  <sub>Built with ⚡️ using Electron</sub>
+</div>
+```
